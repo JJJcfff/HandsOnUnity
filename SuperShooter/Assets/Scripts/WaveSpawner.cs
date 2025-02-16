@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class WaveSpawner: MonoBehaviour
 {
     public GameObject prefab;
     public float spawnRate;
@@ -12,8 +12,9 @@ public class NewBehaviourScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Spawn", startTime, spawnRate);
-        Invoke("CancelInvoke", endTime);
+        WaveManager.instance.AddWave(this);
+        InvokeRepeating(nameof(Spawn), startTime, spawnRate);
+        Invoke(nameof(EndSpawner), endTime);
     }
     
     void Spawn()
@@ -21,9 +22,9 @@ public class NewBehaviourScript : MonoBehaviour
         Instantiate(prefab, transform.position, transform.rotation);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void EndSpawner()
+    { 
+        WaveManager.instance.RemoveWave(this);
+        CancelInvoke();
     }
 }

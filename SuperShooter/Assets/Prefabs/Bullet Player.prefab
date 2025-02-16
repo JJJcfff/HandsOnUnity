@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 552859723623197263}
   - component: {fileID: 5627228720657052259}
   - component: {fileID: -2417401765906292906}
-  m_Layer: 0
-  m_Name: Bullet
+  - component: {fileID: 7772939416864247189}
+  m_Layer: 8
+  m_Name: Bullet Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d467755ea4b144d4ca6f85d08c785bb5, type: 2}
+  - {fileID: 2100000, guid: 7fd22b7e1909a0140bd4b17573f91441, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -103,7 +104,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -121,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687b177cf5819194386ad920a9216871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 5
 --- !u!114 &-2417401765906292906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,3 +136,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 5
+--- !u!114 &7772939416864247189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3896289067588341404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773ece30cbc3776419fbe35882385e71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
