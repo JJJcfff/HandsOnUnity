@@ -18,6 +18,7 @@ public class EnemyFSM : MonoBehaviour
     public Sight sightSensor;
     public float baseAttackDistance;
     public float playerAttackDistance;
+    public ParticleSystem muzzleEffect;
     private NavMeshAgent agent;
     private Transform baseTransform;
 
@@ -61,7 +62,7 @@ public class EnemyFSM : MonoBehaviour
             currentState = EnemyState.ChasePlayer;
 
         var distanceToBase = Vector3.Distance(transform.position, baseTransform.position);
-        if (distanceToBase < baseAttackDistance)
+        if (distanceToBase <= baseAttackDistance)
             currentState = EnemyState.AttackBase;
     }
 
@@ -123,5 +124,6 @@ public class EnemyFSM : MonoBehaviour
 
         lastShootTime = Time.time;
         Instantiate(bulletPrefab, transform.position, transform.rotation);
+        muzzleEffect.Play();
     }
 }
